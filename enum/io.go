@@ -1,7 +1,7 @@
 // Copyright 2017-2021 Jeff Foley. All rights reserved.
 // Use of this source code is governed by Apache 2 LICENSE that can be found in the LICENSE file.
 
-package main
+package enum
 
 import (
 	"context"
@@ -23,8 +23,8 @@ func init() {
 	sourceTags = make(map[string]string)
 }
 
-// ExtractOutput is a convenience method for obtaining new discoveries made by the enumeration process.
-func ExtractOutput(ctx context.Context, e *enum.Enumeration, filter *stringset.Set, asinfo bool, limit int) []*requests.Output {
+// ExtractOutpu(e *Enumeration)t is a convenience method for obtaining new discoveries made by the enumeration process.
+func (e *Enumeration)ExtractOutput(ctx context.Context, e *enum.Enumeration, filter *stringset.Set, asinfo bool, limit int) []*requests.Output {
 	if e.Config.Passive {
 		return EventNames(ctx, e.Graph, e.Config.UUID.String(), filter)
 	}
